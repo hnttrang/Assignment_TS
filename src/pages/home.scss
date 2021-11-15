@@ -1,0 +1,33 @@
+@import "../style/style.scss";
+body{
+    max-width: 1024px;
+    min-width: $MobileWidth;
+    margin: auto;
+}
+
+text{
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    color: $VeryDarkCyan;
+    margin: auto;
+    background-color: $LightGrayishCyan;
+}
+
+.logo{
+    text-align: center;
+    padding: 5rem 0 3rem 0;
+}
+
+.home{
+display: flex;
+justify-content: center;
+width: auto;
+background-color: white;
+margin: 5rem;
+border-radius: 20px;
+@include breakpoint-down(medium){
+    flex-flow: wrap;
+    min-width: $MobileWidth;
+    margin: 0;
+}
+}

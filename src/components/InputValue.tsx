@@ -1,14 +1,16 @@
-import dollar from "../../assets/icon-dollar.svg";
-import person from "../../assets/icon-person.svg";
-import React, {SyntheticEvent} from "react";
-import  "./styles.scss";
-import { inputData } from "../pages/home";
-export interface Props{
-    data: inputData
-}
+import dollar from "../assets/icon-dollar.svg";
+import person from "../assets/icon-person.svg";
+import React, {} from "react";
+import  "./style.scss";
+import { IInputValue, inputData } from "../pages/home";
 
+const InputValue = (props: IInputValue) => {
+    const {
+        data,
 
-const InputValue = (props: Props) => {
+    } = props
+    console.log(data);
+    
 
     const tippad = [
         [5, 10, 15],
@@ -26,6 +28,8 @@ const InputValue = (props: Props) => {
         }
     };
 
+
+
     return (
         <div className="input">
             <form id="input-form" 
@@ -34,15 +38,16 @@ const InputValue = (props: Props) => {
                 }}>
                 <p>Bill</p>
                 
-                <div className="input">
+                <div className="input-bar">
                     <img src={dollar} alt="icon-dollar"/>
                     <input type="number" 
+                    name="bill"
                     placeholder="0"
                     onKeyPress = {e =>{
                         preventOperator(e);
                     }}
                     onChange = {e => {
-                        //setData({...data, bill: parseFloat(e.target.value)});
+                        props.handleChange(e);
                     }}/>
                 </div>
                 <p>Select tip %</p>
@@ -52,28 +57,31 @@ const InputValue = (props: Props) => {
                     return (
                         <button
                         key = {idx}
-                        //className = {btn == data.tip ? "percent-button percent-button__target" : "percent-button"}
-                        className='percent-button'
+                        className = {btn === props.data.tip ? "percent-button percent-button__target" : "percent-button"}
+                        // className='percent-button'
                         value = {btn}
                         onClick = {(e) => {
-                        // e.preventDefault();
-                        // setData({...data, tip: parseFloat(btn)});
+                            e.preventDefault();
+                            props.handleTip(btn);
                         }}>
                         {btn}%
                         </button>
                     ) 
                     })}
-                    <input id='cus-tip' 
-                    //className={tippad.flat().includes(data.tip) ? "percent-button" : "percent-button percent-button__target"} 
+                    <input id='cus-tip'
+                    name="tip" 
+                    className={tippad.flat().includes(props.data.tip) ? "percent-button" : "percent-button percent-button__target"} 
+                    //className="percent-button"
                     placeholder='CUSTOM' type='number'
                     onKeyPress = {e => {
                         preventOperator(e);
                     }}
                     onClick = { (e) => {
-                        //setData({...data, tip: parseFloat(e.target.value)});
+                        e.preventDefault();
+                        props.handleTip(parseFloat(e.currentTarget.value));
                     }}
                     onChange = {e =>{
-                        //setData({...data, tip: parseFloat(e.target.value)});
+                        props.handleChange(e);
                     }}/>
                 </div>
 
@@ -81,13 +89,14 @@ const InputValue = (props: Props) => {
                 <div className= "input-bar">
                     <img src={person} alt="icon-person"/>
                     <input 
+                    name = "people"
                     type="number" placeholder="0"
                     onKeyPress = {e => {
                         preventOperator(e);
                         preventFloat(e);
                     }}
                     onChange = {e => {
-                        //setData({...data, people: parseFloat(e.target.value)});
+                        props.handleChange(e);
                     }} />
                 </div>
             </form>

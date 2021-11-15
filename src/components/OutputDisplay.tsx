@@ -1,26 +1,33 @@
 import './style.scss';
 import React from 'react';
 import { useContext } from 'react';
+import { inputData } from '../pages/home';
 export interface Props{
-    name: string,
-    data : {}
-    result: [],
-    
+    result: any,
+    isCalc: boolean,
+    onSubmit: () => void,
+    validateInput: () => boolean
 }
 
 const Display = (props: Props) => {
     const {
-        result: []
+        result,
+        isCalc,
+        onSubmit,
+        validateInput
     } = props;
+
+    //console.log();
+    
     return (
         <section className="right-side">
         <div className="display">
           <h5>Tip Amount <br/> <p>/ people</p></h5>
-          <h1 id="tipAmount">{}</h1>
+          <h1 id="tipAmount">{result.amount}</h1>
         </div>
         <div className="display">
           <h5>Total <br/> <p>/ people</p></h5>
-          <h1 id="total">{}</h1>
+          <h1 id="total">{result.total}</h1>
         </div>
         <div className="container">
           <button
@@ -31,10 +38,10 @@ const Display = (props: Props) => {
           }}
           >RESET</button>
           <button type='button'
-          disabled={true}
+          disabled={!validateInput()}
           onClick = {e => {
             e.preventDefault();
-
+            onSubmit();
           }}
           >CAL</button>
         </div>

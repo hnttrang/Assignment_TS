@@ -1,0 +1,1 @@
+export const API = "https://plitter-server.vercel.app/api/calculate";

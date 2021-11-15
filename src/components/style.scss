@@ -1,20 +1,4 @@
-@import "../../styles/variables";
-@import "../../styles/style";
-
-.home{
-    display: flex;
-    justify-content: center;
-    width: auto;
-    background-color: white;
-    margin: 5rem;
-    border-radius: 20px;
-    @include breakpoint-down(medium){
-        flex-flow: wrap;
-        min-width: $MobileWidth;
-        margin: 0;
-    }
-}
-
+@import "../style/style.scss";
 
 .input{
     font-family: 'Space Mono', monospace;
@@ -84,4 +68,58 @@
             }
             
         }
+}
+
+.right-side{
+    font-family: 'Space Mono', monospace;
+    font-weight: 500;
+    font-size: $FontSize;
+    margin: 1rem;
+    padding: 1rem;
+
+    background-color: $VeryDarkCyan;
+    border-radius: 10px;
+    margin: 2rem;
+    padding: 1.5rem;
+    flex-grow: 1;
+
+    .container{
+        text-align: center;
+
+        button{
+            color: white;
+            cursor: pointer;
+            font-family: 'Space Mono', monospace;
+            font-weight: 500;
+            align-self: center;
+            background-color: $strongCyan;
+            margin: .5rem;
+            padding: .5rem 1rem .5rem 1rem;
+            border-radius: 5px;
+            color: $VeryDarkCyan;
+
+            &:disabled{
+                pointer-events: none;
+                opacity: .4;
+            }
+        }
+    }
+}
+
+.display{
+    display: flex;
+    justify-content: space-between;
+    color: $strongCyan;
+    border-radius: 10px;
+
+    p{
+        padding: 0;
+        margin: .2rem;
+        color: $LightGrayishCyan;
+        font-size: 10px;
+    }
+
+    img{
+        color: $strongCyan;
+    }
 }
