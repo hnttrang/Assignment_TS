@@ -9,7 +9,7 @@ const InputValue = (props: IInputValue) => {
         data,
 
     } = props
-    console.log(data);
+    //console.log(data);
     
 
     const tippad = [
