@@ -1,0 +1,87 @@
+@import "../../styles/variables";
+@import "../../styles/style";
+
+.home{
+    display: flex;
+    justify-content: center;
+    width: auto;
+    background-color: white;
+    margin: 5rem;
+    border-radius: 20px;
+    @include breakpoint-down(medium){
+        flex-flow: wrap;
+        min-width: $MobileWidth;
+        margin: 0;
+    }
+}
+
+
+.input{
+    font-family: 'Space Mono', monospace;
+    font-weight: 500;
+    font-size: $FontSize;
+    margin: 1rem;
+    padding: 1rem;
+
+    .input-bar{
+        span{
+            display: none;
+            color: red;
+        }
+        &__invalid{
+            border: 2px solid red;
+        }
+        background-color: $LightGrayishCyan2;
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem;
+        border-radius: 10px;
+        input{
+            border: none;
+            outline: none;
+            text-align: right;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            font-size: $FontSize;
+            color: $VeryDarkCyan;
+            background-color: $LightGrayishCyan2;
+            
+        }
+        img{
+            height: 20%;
+            align-self: center;
+            padding-left: 1rem;
+        }
+    }
+
+    .tip-pad{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(2, 1fr);
+        //grid-gap: 5px;
+            .percent-button{
+                font-weight: 700;
+                background-color: $VeryDarkCyan;
+                margin: .5rem;
+                padding: .5rem;
+                border-radius: 5px;
+                color: white;
+                cursor: pointer;
+                width: 5rem;
+                text-align: center;
+    
+                &__target{
+                    background-color: $strongCyan;
+                    color: $VeryDarkCyan;
+                }
+            }
+            input{
+                color: white;
+                font-family: 'Space Mono', monospace;
+                outline: none;
+                border: none;
+                padding: 0;
+            }
+            
+        }
+}

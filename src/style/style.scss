@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+@import "_variables";
+@import "_mixins";
+@import "_global";
+
+body{
+    max-width: 1024px;
+    min-width: $MobileWidth;
+    margin: auto;
+}
+
+text{
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    color: $VeryDarkCyan;
+    margin: auto;
+    background-color: $LightGrayishCyan;
+}
